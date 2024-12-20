@@ -14,9 +14,8 @@ def scrape_transactions():
 
     # Keywords to filter articles
     KEYWORDS = [
-        "sale", "acquisition", "purchase", "transaction", "development",
-        "agreement", "management", "investment", "renovation", "kitchen",
-        "upgrade", "property", "closing", "joint venture"
+        "sale", "acquisition", "purchase", "transaction", "renovation", "kitchen",
+        "upgrade"
     ]
 
     try:
