@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import re
+import json  # Import the JSON module
 
 def scrape_transactions():
     url = "https://www.multifamilybiz.com/news"
@@ -88,5 +89,10 @@ def fetch_article_details(url, headers, keywords):
 # For testing purposes
 if __name__ == "__main__":
     articles = scrape_transactions()
-    for idx, article in enumerate(articles, start=1):
-        print(f"{idx}. {article['title']} ({article['date']})\nURL: {article['url']}\n")
+    
+    # Serialize the articles to JSON and write to a file
+    with open("articles.json", "w", encoding="utf-8") as f:
+        json.dump({"data": articles}, f, ensure_ascii=False, indent=4)
+    
+    # Optionally, print the JSON to verify
+    print(json.dumps({"data": articles}, ensure_ascii=False, indent=4))
